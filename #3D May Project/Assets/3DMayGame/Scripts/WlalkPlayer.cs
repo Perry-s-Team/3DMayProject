@@ -4,7 +4,7 @@ namespace DefaultNameSpace {
 
     public class WlalkPlayer : MonoBehaviour
     {
-        [SerializeField] private float moveSpeed = 5f; // Скорость перемещения персонажа
+        [SerializeField] private float moveSpeed = 40f; // Скорость перемещения персонажа
 
         private void Update()
         {

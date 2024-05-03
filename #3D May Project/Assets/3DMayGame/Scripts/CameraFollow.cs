@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public class CameraFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform Player;
+    Vector3 Target;
+    [SerializeField] private float TrakingSpeed = 0.25f;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Player)
+        {
+            Vector3 currentPosition = Vector3.Lerp(transform.position, Target, TrakingSpeed * Time.deltaTime);
+            transform.position = currentPosition;
+
+            Target = new Vector3(Player.transform.position.x, transform.position.y + 1, Player.transform.position.z);
+        }
     }
 }
+
