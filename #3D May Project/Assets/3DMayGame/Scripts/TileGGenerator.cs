@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileGenerator : MonoBehaviour
+public class TileGGenerator : MonoBehaviour
 {
     public GameObject[] tilePrefabs;
     private List<GameObject> activeTiles = new List<GameObject>();
@@ -14,7 +14,7 @@ public class TileGenerator : MonoBehaviour
     private int startTiles = 3;
 
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
         for (int i = 0; i < startTiles; i++)
         {
@@ -23,9 +23,9 @@ public class TileGenerator : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        if (player.position.x - 60 > spawnPos - (startTiles * tileLength))
+        if (player.position.z - 120 > spawnPos - (startTiles * tileLength))
         {
             SpawnTile(Random.Range(0, tilePrefabs.Length));
             DeleteTile();
@@ -34,7 +34,7 @@ public class TileGenerator : MonoBehaviour
 
     private void SpawnTile(int tileIndex)
     {
-        GameObject nextTile = Instantiate(tilePrefabs[tileIndex], new Vector3(spawnPos, 0f, 0f), transform.rotation);
+        GameObject nextTile = Instantiate(tilePrefabs[tileIndex], transform.forward * spawnPos, transform.rotation);
         activeTiles.Add(nextTile);
         spawnPos += tileLength;
     }
@@ -43,5 +43,4 @@ public class TileGenerator : MonoBehaviour
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
     }
-
 }
