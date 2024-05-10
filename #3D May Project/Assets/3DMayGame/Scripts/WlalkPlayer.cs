@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace DefaultNameSpace
 {
@@ -6,9 +7,23 @@ namespace DefaultNameSpace
     [RequireComponent(typeof(Rigidbody))]
     public class WlalkPlayer : MonoBehaviour
     {
-        public float speed = 80f;
+        [SerializeField] private float speed = 80f;
+        [SerializeField] private int coins;
+        [SerializeField] private Text ammoText;
 
-    void Update()
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Coin")
+            {
+                coins += 10;
+                ammoText.text = coins.ToString();
+                Destroy(other.gameObject);
+            }
+
+            
+        }
+
+        void Update()
     {
         float horizontalInput = 0f;
         float verticalInput = 0f;
