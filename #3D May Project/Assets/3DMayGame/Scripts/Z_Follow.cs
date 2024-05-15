@@ -13,7 +13,7 @@ public class Z_Follow : MonoBehaviour
     }
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed);
+        transform.position = Vector3.MoveTowards(transform.position, player.position, speed);
     }
 }
 

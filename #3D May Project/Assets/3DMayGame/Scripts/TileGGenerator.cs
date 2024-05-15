@@ -11,7 +11,7 @@ public class TileGGenerator : MonoBehaviour
 
 
     [SerializeField] private Transform player;
-    private int startTiles = 3;
+    private int startTiles = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class TileGGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.position.z - 120 > spawnPos - (startTiles * tileLength))
+        if (player.position.z - 110 > spawnPos - (startTiles * tileLength))
         {
             SpawnTile(Random.Range(0, tilePrefabs.Length));
             DeleteTile();
