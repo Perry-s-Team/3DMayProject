@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float currentHealth = 5;
+    public int currentHealth = 2;
+
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
+    }
 }

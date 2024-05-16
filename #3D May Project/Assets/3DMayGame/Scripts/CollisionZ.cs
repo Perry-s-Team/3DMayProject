@@ -1,29 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionZ : PlayerHealth
 {
-    [SerializeField] private int zombieAttack = 1;
+    [SerializeField] private int zombieDamage = 1;
     [SerializeField] private PlayerHealth health;
     //[SerializeField] private 
 
-    private void Start()
+
+    public void Start()
     {
         health = GetComponent<PlayerHealth> ();
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Enemy")
         {
-           health.currentHealth -= zombieAttack;
+           health.currentHealth -= zombieDamage;
         }
     }
-    private void Update()
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Invoke("Damage", 2f);
+        }
+    }
+    public void Update()
     {
         if(health.currentHealth <= 0)
         {
-            //Destroy;
+            Destroy(gameObject);        
         }
+    }
+    private void Damage()
+    {
+        health.currentHealth -= zombieDamage;
     }
 }
