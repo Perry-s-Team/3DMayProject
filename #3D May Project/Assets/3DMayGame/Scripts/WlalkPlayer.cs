@@ -10,7 +10,12 @@ namespace DefaultNameSpace
         [SerializeField] private float speed = 80f;
         [SerializeField] private int coins;
         [SerializeField] private Text ammoText;
+        private Animator _animator;
 
+        private void Start()
+        {
+            _animator = GetComponent<Animator>();
+        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Coin")
@@ -45,8 +50,20 @@ namespace DefaultNameSpace
             horizontalInput = 1f;
         }
 
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime;
-        transform.Translate(movement, Space.Self);
+            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime;
+            transform.Translate(movement, Space.Self);
+
+            _animator.SetBool("isWalk", verticalInput < 0f);
+
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                _animator.SetBool("gun", true);
+            }
+            else _animator.SetBool("gun", false);
+        }
+
     }
-    }
+
+
 }
