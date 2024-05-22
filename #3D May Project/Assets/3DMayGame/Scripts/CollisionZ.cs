@@ -4,18 +4,20 @@ public class CollisionZ : PlayerHealth
 {
     [SerializeField] private int zombieDamage = 1;
     [SerializeField] private PlayerHealth health;
-    //[SerializeField] private 
+
 
 
     public void Start()
     {
         health = GetComponent<PlayerHealth> ();
+
     }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
-           health.currentHealth -= zombieDamage;
+
+            Damage();
         }
     }
     private void OnCollisionStay(Collision collision)
@@ -24,7 +26,10 @@ public class CollisionZ : PlayerHealth
         {
             Invoke("Damage", 2f);
         }
+        if (collision.gameObject.tag == "Bullet")
+            Destroy(gameObject);
     }
+
     public void Update()
     {
         if(health.currentHealth <= 0)
@@ -35,5 +40,5 @@ public class CollisionZ : PlayerHealth
     private void Damage()
     {
         health.currentHealth -= zombieDamage;
-    }
+    }  
 }

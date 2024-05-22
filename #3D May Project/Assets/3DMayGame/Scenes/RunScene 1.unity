@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15315792, g: 0.17385115, b: 0.18369536, a: 1}
+  m_IndirectSpecularColor: {r: 0.15315801, g: 0.17385137, b: 0.18369551, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -799,18 +799,6 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 1904899213}
-    - target: {fileID: 927914949535946921, guid: 880d79c6948c2254bb9cd1a3c4890ba8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 927914949535946921, guid: 880d79c6948c2254bb9cd1a3c4890ba8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 927914949535946921, guid: 880d79c6948c2254bb9cd1a3c4890ba8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
     - target: {fileID: 2636671066325989539, guid: 880d79c6948c2254bb9cd1a3c4890ba8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.7477283
@@ -851,10 +839,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5367222815714518020, guid: 880d79c6948c2254bb9cd1a3c4890ba8, type: 3}
-      propertyPath: enemy.Array.data[0]
+    - target: {fileID: 7533378861683596438, guid: 880d79c6948c2254bb9cd1a3c4890ba8, type: 3}
+      propertyPath: enemyHead
       value: 
-      objectReference: {fileID: 5432361699850938615, guid: 080035d6cb6021a4e807dfcd96c21f19, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8919381597546921992, guid: 880d79c6948c2254bb9cd1a3c4890ba8, type: 3}
       propertyPath: m_Name
       value: GenSuit
