@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - SecondPoint
   - FirstPoint
+  - TriggerAttak
+  - Bullet
+  - enemyHead
   layers:
   - Default
   - TransparentFX
