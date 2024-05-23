@@ -1,27 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+public class Score : PlayerHealth
 {
     [SerializeField] private Transform player;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text money;
-    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject panel;
+    [SerializeField] private PlayerHealth health;
 
+    private void Start()
+    {
+        health = GetComponent<PlayerHealth>();
+    }
 
     private void Update()
     {
         if (player != null)
         scoreText.text = ((int)(player.position.z)).ToString();
 
-        if(player == null)
+        if (health.currentHealth <= 0)
         {
-            print("Player = null");
-            money.text = scoreText.text;
-            canvas.SetActive(true);
+            //money.text = scoreText.text / 50;
+            panel.SetActive(true);
         }
     }
 }
