@@ -6,8 +6,9 @@ public class Score : PlayerHealth
 {
     [SerializeField] private Transform player;
     [SerializeField] private Text scoreText;
+    [SerializeField] private Text scoreTextfordiemenu;
     [SerializeField] private Text money;
-    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject diemenu;
     [SerializeField] private PlayerHealth health;
 
     private void Start()
@@ -19,11 +20,13 @@ public class Score : PlayerHealth
     {
         if (player != null)
         scoreText.text = ((int)(player.position.z)).ToString();
+        
 
         if (health.currentHealth <= 0)
         {
             //money.text = scoreText.text / 50;
-            panel.SetActive(true);
+            diemenu.SetActive(true);
+            scoreTextfordiemenu.text = scoreText.text;
         }
     }
 }
