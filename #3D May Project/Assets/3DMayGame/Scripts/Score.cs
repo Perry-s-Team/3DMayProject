@@ -31,8 +31,7 @@ public class Score : PlayerHealth
 
         if (health.currentHealth <= 0)
         {
-
-            //money.text = scoreText.text / 50;
+         
             ammunation.SetActive(false);
             score.SetActive(false);
             diemenu.SetActive(true);
