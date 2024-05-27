@@ -17,7 +17,7 @@ public class Z_Follow : MonoBehaviour
         if (player != null)
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed);
         else 
-        enemy.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;     
+        enemy.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;          
     }
     private void OnTriggerEnter(Collider other)
     {

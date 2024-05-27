@@ -25,6 +25,7 @@ public class Score : PlayerHealth
         if (player != null)
             scoreText.text = ((int)(player.position.z)).ToString();
         distante = ((int)(player.position.z));
+        if (distante == 50)
         money.text = (distante / 50).ToString();
         distante -= 50;
 
