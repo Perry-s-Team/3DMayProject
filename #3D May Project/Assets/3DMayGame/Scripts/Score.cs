@@ -9,6 +9,10 @@ public class Score : PlayerHealth
     [SerializeField] private Text scoreTextfordiemenu;
     [SerializeField] private Text money;
     [SerializeField] private GameObject diemenu;
+    [SerializeField] private GameObject ammunation;
+    [SerializeField] private GameObject score;
+    [SerializeField] private int distante;
+    [SerializeField] private GameObject moneyMenu;
     [SerializeField] private PlayerHealth health;
 
     private void Start()
@@ -19,14 +23,20 @@ public class Score : PlayerHealth
     private void Update()
     {
         if (player != null)
-        scoreText.text = ((int)(player.position.z)).ToString();
-        
+            scoreText.text = ((int)(player.position.z)).ToString();
+        distante = ((int)(player.position.z));
+        money.text = (distante / 50).ToString();
+        distante -= 50;
 
         if (health.currentHealth <= 0)
         {
+
             //money.text = scoreText.text / 50;
+            ammunation.SetActive(false);
+            score.SetActive(false);
             diemenu.SetActive(true);
             scoreTextfordiemenu.text = scoreText.text;
+
         }
     }
 }
