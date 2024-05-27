@@ -4,12 +4,14 @@ public class CollisionZ : PlayerHealth
 {
     [SerializeField] private int zombieDamage = 1;
     [SerializeField] private PlayerHealth health;
+    [SerializeField] private Animator _animator;
 
 
 
     public void Start()
     {
         health = GetComponent<PlayerHealth> ();
+        _animator = GetComponent<Animator> ();
 
     }
     private void OnCollisionEnter(Collision collision)
@@ -34,9 +36,16 @@ public class CollisionZ : PlayerHealth
     {
         if(health.currentHealth <= 0)
         {
-            Destroy(gameObject);        
-        }
+            _animator.SetBool("Death", true);
+            Invoke(nameof(DestroyPlayer), 3f);
+            
+        }      
     }
+    private void DestroyPlayer()
+    {
+        Destroy(gameObject);
+    }
+
     private void Damage()
     {
         health.currentHealth -= zombieDamage;

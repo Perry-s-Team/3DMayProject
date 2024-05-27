@@ -15,7 +15,7 @@ public class Buttons : MonoBehaviour
 
     public void StartRun()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 
 

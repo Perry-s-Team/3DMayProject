@@ -7,25 +7,23 @@ namespace DefaultNameSpace
     [RequireComponent(typeof(Rigidbody))]
     public class WlalkPlayer : MonoBehaviour
     {
-        [SerializeField] private float speed = 80f;
+        [SerializeField] private float speed = 2.5f;
         [SerializeField] private int coins;
-        [SerializeField] private Text ammoText;
+        public Text ammoText;
         private Animator _animator;
 
         private void Start()
         {
             _animator = GetComponent<Animator>();
         }
-        private void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Coin")
             {
                 coins += 10;
                 ammoText.text = coins.ToString();
                 Destroy(other.gameObject);
-            }
-
-            
+            }          
         }
 
         void Update()
