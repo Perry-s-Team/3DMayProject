@@ -53,16 +53,14 @@ namespace DefaultNameSpace
             Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime;
             transform.Translate(movement, Space.Self);
 
-            if (verticalInput < 0f || verticalInput > 0f)
-            _animator.SetBool("Walk", true);
-            else _animator.SetBool("Walk", false);
-
+            _animator.SetBool("isWalk", verticalInput < 0f);
 
 
             if (Input.GetMouseButtonDown(0))
             {
-                _animator.SetTrigger("Shooting");
+                _animator.SetBool("gun", true);
             }
+            else _animator.SetBool("gun", false);
         }
 
     }
